@@ -79,7 +79,7 @@ theme: aircloud
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:alex6liu/hexo-blog.git
+  repo: https://github.com/alex6liu/alex6liu.github.io.git
   branch: master
 
 search:
