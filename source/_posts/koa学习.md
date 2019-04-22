@@ -3,19 +3,31 @@ title: koa学习
 date: 2019-04-22 14:45:29
 tags: [koa, nodejs]
 ---
+
 # koa 学习
 
 ## 洋葱模型
+
 ![](https://camo.githubusercontent.com/d80cf3b511ef4898bcde9a464de491fa15a50d06/68747470733a2f2f7261772e6769746875622e636f6d2f66656e676d6b322f6b6f612d67756964652f6d61737465722f6f6e696f6e2e706e67)
 
 ## Middleware
-### Router
-```koa-router``` [link](https://github.com/ZijianHe/koa-router)
 
-#### 安装 
-```npm install koa-router```
+### Router
+
+``` js
+koa-router
+```
+
+[link](https://github.com/ZijianHe/koa-router)
+
+#### 安装
+
+``` js
+npm install koa-router
+```
 
 #### Basic Usage
+
 ``` js
 var Koa = require('koa');
 var Router = require('koa-router');
@@ -35,6 +47,7 @@ app
 Additionaly, ```router.all()``` can be used to match against all methods.
 
 #### 动态路由
+
 ```js
 router.get('/:id', (ctx, next) => {
   console.log(ctx.params)
@@ -42,6 +55,7 @@ router.get('/:id', (ctx, next) => {
 ```
 
 #### url传值
+
 ```js
 router.get('/news', (ctx, next) => {
   console.log(ctx.query) // -> 推荐
@@ -53,6 +67,7 @@ router.get('/news', (ctx, next) => {
 ```
 
 #### 公共数据
+
 ``` js
 app.use(async function (ctx) {
   ctx.state = {
@@ -63,10 +78,15 @@ app.use(async function (ctx) {
 ```
 
 ### ejs模板引擎
+
 #### 安装
-```npm i ejs koa-views```
+
+``` js
+npm i ejs koa-views
+```
 
 #### Usage
+
 ``` js
 const views = require('koa-views');
 const path = require('path');
@@ -87,10 +107,15 @@ app.use(async function (ctx) {
 ```
 
 #### ejs语法
+
 ##### 数据绑定
-```<%= title %>```
+
+``` js
+<%= title %>
+```
 
 ##### for循环
+
 list是绑定的数据
 
 ``` js
@@ -100,6 +125,7 @@ list是绑定的数据
 ```
 
 ##### 引入模板
+
 ``` js
 // public/header.ejs
 <h2>Header</h2>
@@ -110,12 +136,15 @@ list是绑定的数据
 ```
 
 ##### 绑定html数据
+
 ``` js
 <%- html %>
 ```
 
 ### 获取post提交的数据
+
 #### 原生
+
 ``` js
 app.use( async ( ctx ) => {
 
@@ -175,7 +204,10 @@ function parseQueryStr( queryStr ) {
 ```
 
 #### koa-bodyparser中间件
-```npm i koa-bodyparser```
+
+``` js
+npm i koa-bodyparser
+```
 
 ``` js
 const bodyParser = require('koa-bodyparser')
@@ -212,11 +244,16 @@ app.use( async ( ctx ) => {
 ```
 
 ### 静态资源
+
 #### 原生
+
 [link](https://github.com/ChenShenhai/koa2-note/blob/master/note/static/server.md)
 
 #### 中间件
-```koa-static```
+
+``` js
+koa-static
+```
 
 ``` js
 const Koa = require('koa')
@@ -243,15 +280,18 @@ app.listen(3000, () => {
 ```
 
 ### art-template模板引擎
+
 - 速度极快
 - 支持ejs语法
 
 #### 安装
-```
+
+``` js
 npm install --save art-template koa-art-template
 ```
 
 #### Usage
+
 ``` js
 const Koa = require('koa');
 const render = require('koa-art-template');
@@ -271,21 +311,26 @@ app.listen(8080);
 ```
 
 #### syntax
+
 [link](https://aui.github.io/art-template/docs/syntax.html)
+
 ``` js
 {{value}}
 ```
 
 ## cookie
+
 ### 使用方法
 
 koa提供了从上下文直接读取、写入cookie的方法
+
 - ctx.cookies.get(name, [options]) 读取上下文请求中的cookie
 - ctx.cookies.set(name, value, [options]) 在上下文中写入cookie
 
 koa2 中操作的cookies是使用了npm的cookies模块，源码在[https://github.com/pillarjs/cookies](https://github.com/pillarjs/cookies)，所以在读写cookie的使用参数与该模块的使用一致。
 
 ### 例子代码
+
 ``` js
 const Koa = require('koa')
 const app = new Koa()
@@ -294,7 +339,7 @@ app.use( async ( ctx ) => {
 
   if ( ctx.url === '/index' ) {
     ctx.cookies.set(
-      'cid', 
+      'cid',
       'hello world',
       {
         domain: 'localhost',  // 写cookie所在的域名
@@ -318,20 +363,24 @@ app.listen(3000, () => {
 ```
 
 ## session
+
 koa2原生功能只提供了cookie的操作，但是没有提供session操作。session就只用自己实现或者通过第三方中间件实现。在koa2中实现session的方案有一下几种
+
 - 如果session数据量很小，可以直接存在内存中
 - 如果session数据量很大，则需要存储介质存放session数据
 
 ### 数据库存储方案
+
 - 将session存放在MySQL数据库中
 - 需要用到中间件
-    - koa-session-minimal 适用于koa2 的session中间件，提供存储介质的读写接口 。
-    - koa-mysql-session 为koa-session-minimal中间件提供MySQL数据库的session数据读写操作。
-    - 将sessionId和对应的数据存到数据库
+  - koa-session-minimal 适用于koa2 的session中间件，提供存储介质的读写接口 。
+  - koa-mysql-session 为koa-session-minimal中间件提供MySQL数据库的session数据读写操作。
+  - 将sessionId和对应的数据存到数据库
 - 将数据库的存储的sessionId存到页面的cookie中
 - 根据cookie的sessionId去获取对于的session信息
 
 ### 例子代码
+
 ```js
 const Koa = require('koa')
 const session = require('koa-session-minimal')
@@ -391,9 +440,13 @@ console.log('[demo] session is starting at port 3000')
 ```
 
 ## 验证码
-```npm install --save svg-captcha```
+
+``` js
+npm install --save svg-captcha
+```
 
 ### Usage
+
 ``` js
 var svgCaptcha = require('svg-captcha');
 
@@ -402,8 +455,8 @@ console.log(captcha);
 // {data: '<svg.../svg>', text: 'abcd'}
 ```
 
-
 with express
+
 ``` js
 var svgCaptcha = require('svg-captcha');
 
@@ -417,6 +470,7 @@ app.get('/captcha', function (req, res) {
 ```
 
 with koa
+
 ``` js
 const captcha = svgCaptcha.create({
   size: 6,
