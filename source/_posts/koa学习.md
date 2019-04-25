@@ -14,17 +14,13 @@ tags: [koa, nodejs]
 
 ### Router
 
-``` js
-koa-router
-```
+`koa-router`
 
 [link](https://github.com/ZijianHe/koa-router)
 
 #### 安装
 
-``` js
-npm install koa-router
-```
+`npm install koa-router`
 
 #### Basic Usage
 
@@ -44,7 +40,7 @@ app
   .use(router.allowedMethods());
 ```
 
-Additionaly, ```router.all()``` can be used to match against all methods.
+Additionaly, `router.all()` can be used to match against all methods.
 
 #### 动态路由
 
@@ -81,9 +77,7 @@ app.use(async function (ctx) {
 
 #### 安装
 
-``` js
-npm i ejs koa-views
-```
+`npm i ejs koa-views`
 
 #### Usage
 
@@ -110,9 +104,7 @@ app.use(async function (ctx) {
 
 ##### 数据绑定
 
-``` js
-<%= title %>
-```
+`<%= title %>`
 
 ##### for循环
 
@@ -131,15 +123,11 @@ list是绑定的数据
 <h2>Header</h2>
 ```
 
-``` js
-<% include public/header.ejs %>
-```
+`<% include public/header.ejs %>`
 
 ##### 绑定html数据
 
-``` js
-<%- html %>
-```
+`<%- html %>`
 
 ### 获取post提交的数据
 
@@ -205,9 +193,7 @@ function parseQueryStr( queryStr ) {
 
 #### koa-bodyparser中间件
 
-``` js
-npm i koa-bodyparser
-```
+`npm i koa-bodyparser`
 
 ``` js
 const bodyParser = require('koa-bodyparser')
@@ -251,9 +237,7 @@ app.use( async ( ctx ) => {
 
 #### 中间件
 
-``` js
-koa-static
-```
+`koa-static`
 
 ``` js
 const Koa = require('koa')
@@ -286,9 +270,7 @@ app.listen(3000, () => {
 
 #### 安装
 
-``` js
-npm install --save art-template koa-art-template
-```
+`npm install --save art-template koa-art-template`
 
 #### Usage
 
@@ -314,9 +296,7 @@ app.listen(8080);
 
 [link](https://aui.github.io/art-template/docs/syntax.html)
 
-``` js
-{{value}}
-```
+`{{value}}`
 
 ## cookie
 
@@ -441,9 +421,7 @@ console.log('[demo] session is starting at port 3000')
 
 ## 验证码
 
-``` js
-npm install --save svg-captcha
-```
+`npm install --save svg-captcha`
 
 ### Usage
 
