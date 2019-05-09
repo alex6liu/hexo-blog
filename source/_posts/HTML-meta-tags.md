@@ -67,4 +67,4 @@ Example 5 - Setting the viewport to make your website look good on all devices:
 
 ## Attributes
 
-![](source/../../img/meta.png)
+![](https://raw.githubusercontent.com/alex6liu/blog-images/master/html%26css/meta.png)

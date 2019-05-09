@@ -17,7 +17,7 @@ HTML5 Semantic Elements
 - `<details>` - Defines additional details
 - `<summary>` - Defines a heading for the `<details>` element
 
-![](source/../../img/html_layout.gif)
+![](https://raw.githubusercontent.com/alex6liu/blog-images/master/html%26css/html_layout.gif)
 
 ## HTML Layout Techniques
 
