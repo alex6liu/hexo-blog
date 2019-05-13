@@ -1,5 +1,5 @@
 ---
-title: 闭包
+title: 闭包 closure
 date: 2019-05-05 11:09:44
 tags: [js, closure]
 ---

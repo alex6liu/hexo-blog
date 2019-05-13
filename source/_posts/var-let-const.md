@@ -175,3 +175,5 @@ let x = 'outer value';
 Accessing `x` in the inner scope still causes a `ReferenceError`. If `let` were not hoisted, it would log `outer value`.
 
 The TDZ is a good thing because it helps to highlight bugs—accessing a value before it has been declared is rarely intentional.
+
+[ES6 系列之 let 和 const](https://juejin.im/post/5b0238f66fb9a07aca7a74ba)
