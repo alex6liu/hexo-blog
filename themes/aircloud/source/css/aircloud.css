@@ -1155,6 +1155,7 @@ pre .javascript .function {
 }
 .toc-article {
   width: 240px;
+  margin-right: 30px;
 }
 .toc-article::-webkit-scrollbar {
   width: 0;
@@ -1203,6 +1204,7 @@ pre .javascript .function {
   border-left: none !important;
 }
 .toc-fixed {
+  right: 30px;
   position: fixed;
   top: 10px;
   width: 240px;
