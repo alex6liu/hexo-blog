@@ -1154,9 +1154,8 @@ pre .javascript .function {
   }
 }
 .toc-article {
-  left: 30px;
-  position: fixed;
-  top: 180px;
+  left: -100px;
+  position: relative;
   width: 240px;
 }
 .toc-article::-webkit-scrollbar {
@@ -1208,7 +1207,7 @@ pre .javascript .function {
 .toc-fixed {
   left: 30px;
   position: fixed;
-  top: 180px;
+  top: 10px;
   width: 240px;
 }
 .toc-fixed::-webkit-scrollbar {
