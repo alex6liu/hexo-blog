@@ -1,7 +1,7 @@
 ---
 title: css l1
 date: 2019-05-14 09:48:47
-tags: [css l1]
+tags: [css, l1]
 ---
 
 ## Basic knowledge

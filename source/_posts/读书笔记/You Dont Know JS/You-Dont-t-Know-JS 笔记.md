@@ -1,7 +1,7 @@
 ---
 title: You Dont't Know JS 笔记(1)
 date: 2019-04-30 15:54:01
-tags: [js]
+tags: [js, 笔记]
 ---
 
 # Up & Going

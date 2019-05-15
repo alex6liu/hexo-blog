@@ -1,7 +1,7 @@
 ---
 title: You Dont't Know JS 笔记(2)
 date: 2019-05-05 13:58:45
-tags: [js]
+tags: [js, 笔记]
 ---
 
 # Scope & Closures
