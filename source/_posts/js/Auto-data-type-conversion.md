@@ -74,3 +74,57 @@ undefined + 1 // NaN
 +true // 1
 -false // 0
 ```
+
+## [Know rules of auto data types conversion](https://juejin.im/entry/584918612f301e005716add6)
+
+- `===`
+  - 如果Type(x)和Type(y)不同，返回false
+  - 如果Type(x)和Type(y)相同
+    - 如果Type(x)是Undefined，返回true
+    - 如果Type(x)是Null，返回true
+    - 如果Type(x)是String，当且仅当x,y字符序列完全相同（长度相同，每个位置上的字符也相同）时返回true，否则返回false
+    - 如果Type(x)是Boolean，如果x,y都是true或x,y都是false返回true，否则返回false
+    - 如果Type(x)是Symbol，如果x,y是相同的Symbol值，返回true,否则返回false
+    - 如果Type(x)是Number类型
+      - 如果x是NaN，返回false
+      - 如果y是NaN，返回false
+      - 如果x的数字值和y相等，返回true
+      - 如果x是+0，y是-0，返回true
+      - 如果x是-0，y是+0，返回true
+      - 其他返回false
+
+- `==`
+  - 如果Type(x)和Type(y)相同，返回x===y的结果
+  - 如果Type(x)和Type(y)不同
+    - 如果x是null，y是undefined，返回true
+    - 如果x是undefined，y是null，返回true
+    - 如果Type(x)是Number，Type(y)是String，返回 x==ToNumber(y) 的结果
+    - 如果Type(x)是String，Type(y)是Number，返回 ToNumber(x)==y 的结果
+    - 如果Type(x)是Boolean，返回 ToNumber(x)==y 的结果
+    - 如果Type(y)是Boolean，返回 x==ToNumber(y) 的结果
+    - 如果Type(x)是String或Number或Symbol中的一种并且Type(y)是Object，返回 x==ToPrimitive(y) 的结果
+    - 如果Type(x)是Object并且Type(y)是String或Number或Symbol中的一种，返回 ToPrimitive(x)==y 的结果
+    - 其他返回false
+
+- Type(x) : 获取x的类型
+- ToNumber(x) : 将x转换为Number类型
+- ToBoolean(x) : 将x转换为Boolean类型
+- ToString(x) : 将x转换为String类型
+- SameValueNonNumber(x,y) : 计算非数字类型x,y是否相同
+- ToPrimitive(x) : 将x转换为原始值
+
+js中的原始类型：
+
+- Null: null值.
+- Undefined: undefined 值.
+- Number: 所有的数字类型，例如0,1,3.14等 以及NaN, 和 Infinity.
+- Boolean: 两个值true和false.
+- String: 所有的字符串，例如’abc’和’’.
+- 其他的都是’非原始’的，像Array,Function,Object等。
+
+注意：typeof null 得到的结果是object。这里是由于js在最初的设计的问题。但其实null应该是属于原始类型的。
+
+## Strict comparison
+
+- `===` 严格相等，会比较两个值的类型和值
+- `==`  抽象相等，比较时，会先进行类型转换，然后再比较值
